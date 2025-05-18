@@ -14,6 +14,17 @@ class Order:
     self._coffee = coffee
     self._price = float(price)
 
+    self._customer._order.append(self)
+    self._coffee._order.append(self)
+
+    @property
+    def customer(self):
+      return self._customer
+    
+    @property
+    def coffee(self):
+      return self._coffee
+
     @property
     def price(self):
       return self._price

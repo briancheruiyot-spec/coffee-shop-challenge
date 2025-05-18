@@ -1,7 +1,7 @@
 class Customer:
   def __init__(self, name):
     self.name = name
-    self._order = []
+    self._orders = []
 
   @property
   def name(self):
@@ -9,7 +9,7 @@ class Customer:
   
   @name.setter
   def name(self, value):
-    if isinstance(value, str) and 1 <= len(value) <=15:
+    if isinstance(value, str) and 1 <= len(value) <= 15:
       self._name = value
     else:
       raise ValueError("Name must be a string 1-15 characters long.")
@@ -23,9 +23,8 @@ class Customer:
   def create_order(self, coffee, price):
     from order import Order
     new_order = Order(self, coffee, price)
-    self._order.append(new_order)
     return new_order
-  
+
   @classmethod
   def most_aficionado(cls, coffee):
     customer_spending = {}

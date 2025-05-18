@@ -1,8 +1,8 @@
-from customer import Customer
-from coffee import Coffee
-
 class Order:
   def __init__(self, customer, coffee, price):
+    from customer import Customer
+    from coffee import Coffee
+
     if not isinstance(customer, Customer):
       raise TypeError("customer must be a Customer instance")
     if not isinstance(coffee, Coffee):
@@ -14,17 +14,17 @@ class Order:
     self._coffee = coffee
     self._price = float(price)
 
-    self._customer._order.append(self)
-    self._coffee._order.append(self)
+    self._customer._orders.append(self)
+    self._coffee._orders.append(self)
 
-    @property
-    def customer(self):
-      return self._customer
-    
-    @property
-    def coffee(self):
-      return self._coffee
+  @property
+  def customer(self):
+    return self._customer
 
-    @property
-    def price(self):
-      return self._price
+  @property
+  def coffee(self):
+    return self._coffee
+
+  @property
+  def price(self):
+    return self._price

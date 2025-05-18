@@ -1,3 +1,6 @@
+from customer import Customer
+from order import Order
+
 class Coffee:
   def __init__(self, name):
     if isinstance(name, str) and len(name) >= 3:

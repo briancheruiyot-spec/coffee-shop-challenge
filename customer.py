@@ -25,3 +25,11 @@ class Customer:
     new_order = Order(self, coffee, price)
     self._order.append(new_order)
     return new_order
+  
+  @classmethod
+  def most_aficionado(cls, coffee):
+    customer_spending = {}
+    for order in coffee.orders():
+      customer = order.customer
+      customer_spending[customer] = customer_spending.get(customer, 0) + order.price
+    return max(customer_spending, key=customer_spending.get, default=None)

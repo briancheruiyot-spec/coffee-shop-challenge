@@ -49,24 +49,29 @@ See `debug.py` for demonstration:
   from customer import Customer
   from coffee import Coffee
 
-  # Create coffees
+  Create coffees
+  
   latte = Coffee("Latte")
   espresso = Coffee("Espresso")
 
-  # Create customers
+  Create customers
+  
   alice = Customer("Alice")
   bob = Customer("Bob")
 
-  # Create orders
+  Create orders
+  
   alice.create_order(latte, 4.5)
   alice.create_order(espresso, 3.0)
   bob.create_order(latte, 5.0)
 
-  # Get order statistics
+  Get order statistics
+  
   print(f"Latte orders: {latte.num_orders()}, Average price: {latte.average_price()}")
   print(f"Espresso orders: {espresso.num_orders()}, Average price: {espresso.average_price()}")
 
-  # Find biggest spender
+  Find biggest spender
+  
   biggest_spender = Customer.most_aficionado(latte)
   print(f"Most afficionado for Latte: {biggest_spender.name if biggest_spender else 'None'}")
 
